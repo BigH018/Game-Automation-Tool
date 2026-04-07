@@ -32,7 +32,7 @@ class NotificationManager:
     NTFY_URL = "https://ntfy.sh/Shiny-Detected"
 
     def __init__(self):
-        self.webhook_url = "https://discord.com/api/webhooks/1483824520308457513/YwxI4QHVYCSEFnFcJDFYPDa-P30FV7M9MP4HJzlmHzReshTYkBRNQMPodaLOAt6kyZev"
+        self.webhook_url = ""
         self.enabled     = False
 
         # Callback — set by the coordinator

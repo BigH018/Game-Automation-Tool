@@ -209,3 +209,13 @@ When a shiny is detected, a message is sent to the webhook with the detection sc
 - Debug mode is available on each tab for verbose logging (not persisted between sessions)
 - The Interception driver requires a one-time install with admin rights; without it, no input injection will work
 - GTL Sniper requires Tesseract OCR to be installed and on PATH
+
+---
+
+## Screenshots
+
+![Settings Tab](screenshots/settings.png)
+
+![GTL Sniper Tab](screenshots/gtl_sniper.png)
+
+![Network Tab](screenshots/network.png)
