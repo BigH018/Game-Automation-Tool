@@ -18,7 +18,7 @@ A PyQt5 desktop application for automating shiny hunting and GTL price sniping. 
 | Free Shunt | Placeholder |
 | Network Control | Full (controller + listener, up to 4 nodes) |
 
-- **Audio shiny detection** — cross-correlates live audio against a WAV template; stops the macro and alerts you instantly
+- **Audio shiny detection** — cross-correlates live audio against a WAV template; stops the macro and alerts you instantly. **Requires a game sound mod** that replaces the shiny encounter sound with a unique audio cue — the included `alert.wav` is the sound the tool listens for, so your mod must use that same sound
 - **Discord notifications** — optional webhook alert on shiny detection with a test button
 - **Rebindable hotkeys** — all 8 macro toggle keys and all in-game keys (Sweet Scent move, A button, Water, Repel, Map) are rebindable from the UI
 - **Multi-device network control** — run BH Tools on multiple machines simultaneously; one machine acts as the controller and sends start/stop commands to up to 4 remote farm nodes over TCP (port 6789). Each machine can also run as a listener/farm node, receiving commands from the controller. Supports Sweet Scent, Berry Farming, Singles Farming, and GTL Sniper remotely
@@ -72,6 +72,19 @@ python main.py
 ---
 
 ## Usage
+
+### Audio detection — game mod required
+
+The audio detection works by listening to your system audio and cross-correlating it against the included `alert.wav` template. For this to work, **the shiny encounter sound in-game must match `alert.wav`**.
+
+This means you need a game sound mod that replaces the default shiny encounter sound with the same audio as `alert.wav`. Without the mod, the tool will not detect shinies via audio.
+
+Steps:
+1. Install the sound mod for your game that replaces the shiny encounter sound
+2. Ensure the replacement sound matches the included `alert.wav`
+3. Set your audio input device in the Settings tab so the tool can hear the game audio
+
+> If you want to use a different sound, replace `alert.wav` with your own WAV file and point the WAV file setting to it — as long as the in-game sound and the WAV file match, detection will work.
 
 ### First-time setup
 
