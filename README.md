@@ -16,6 +16,7 @@ A PyQt5 desktop application for automating shiny hunting and GTL price sniping. 
 | Trainer Run | Placeholder |
 | Fishing | Placeholder |
 | Free Shunt | Placeholder |
+| Network Control | Full (controller + listener, up to 4 nodes) |
 
 - **Audio shiny detection** — cross-correlates live audio against a WAV template; stops the macro and alerts you instantly
 - **Discord notifications** — optional webhook alert on shiny detection with a test button
