@@ -1,0 +1,58 @@
+{
+  "wav_file": "alert.wav",
+  "threshold": 0.3,
+  "device": 2,
+  "samplerate": 48000,
+  "hotkey_sweet_scent": "F9",
+  "hotkey_berry": "F8",
+  "hotkey_singles": "F7",
+  "hotkey_gtl": "F6",
+  "sweet_scent_key": "2",
+  "a_button_key": "e",
+  "sweet_scent": {
+    "key_press_delay_min": 28,
+    "key_press_delay_max": 160,
+    "battle_start_delay_min": 12773,
+    "battle_start_delay_max": 14500,
+    "battle_end_delay_min": 1800,
+    "battle_end_delay_max": 4500
+  },
+  "gtl_sniper": {
+    "refresh_coords": [
+      1290,
+      232
+    ],
+    "buy_coords": [
+      1440,
+      328
+    ],
+    "price_region": [
+      1015,
+      316,
+      127,
+      40
+    ],
+    "max_price": 0,
+    "refresh_rate_min": 86,
+    "refresh_rate_max": 175
+  },
+  "singles_farming": {
+    "walk_duration_min": 400,
+    "walk_duration_max": 900,
+    "key_press_delay_min": 28,
+    "key_press_delay_max": 160,
+    "battle_start_delay_min": 12773,
+    "battle_start_delay_max": 13000,
+    "battle_end_delay_min": 1800,
+    "battle_end_delay_max": 4500,
+    "poll_interval": 50,
+    "hotbar_region": [
+      449,
+      18,
+      34,
+      49
+    ],
+    "a_button_key": "e"
+  },
+  "discord_notifications_enabled": false
+}
