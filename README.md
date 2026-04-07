@@ -20,6 +20,7 @@ A PyQt5 desktop application for automating shiny hunting and GTL price sniping. 
 - **Audio shiny detection** — cross-correlates live audio against a WAV template; stops the macro and alerts you instantly
 - **Discord notifications** — optional webhook alert on shiny detection with a test button
 - **Rebindable hotkeys** — all 8 macro toggle keys and all in-game keys (Sweet Scent move, A button, Water, Repel, Map) are rebindable from the UI
+- **Multi-device network control** — run BH Tools on multiple machines simultaneously; one machine acts as the controller and sends start/stop commands to up to 4 remote farm nodes over TCP (port 6789). Each machine can also run as a listener/farm node, receiving commands from the controller. Supports Sweet Scent, Berry Farming, Singles Farming, and GTL Sniper remotely
 - **Dark / Light theme** toggle
 - **Save / Load settings** — full config persisted to JSON
 - **GTL price sniping** — OCR reads the price region, compares against your max price, and auto-buys
@@ -57,7 +58,7 @@ pip install PyQt5 sounddevice scipy numpy interception-python pynput requests py
 
 ## Installation
 
-1. Install the **Interception driver** — run `Install-Interception.bat` as Administrator (included in the release package)
+1. Install the **Interception driver** — download and install it from the [official Interception GitHub page](https://github.com/oblitum/Interception). Run the installer as Administrator
 2. Install **Tesseract OCR** and make sure it's on your PATH (required for GTL Sniper only)
 3. Clone or download this repo
 4. Install Python dependencies (see above)
@@ -94,6 +95,26 @@ python main.py
 4. Click **Set Region** and drag over the price text area
 5. Set your **Max Buy Price** (0 = don't buy, just snipe for detection)
 6. Toggle the macro on
+
+### Multi-device network setup
+
+BH Tools can control multiple machines over your local network.
+
+**On each farm machine (listener):**
+1. Open the **Network** tab
+2. Set your port (default `6789`)
+3. Click **Start Listener** — it will show `LISTENING`
+4. Click **Detect** to find the machine's local IP, note it down
+5. If connections are refused, run this in an admin terminal:
+   ```
+   netsh advfirewall firewall add rule name=BH-Tools-Listener dir=in action=allow protocol=TCP localport=6789
+   ```
+
+**On the controller machine:**
+1. Open the **Network** tab → **Controller** section
+2. Enter the IP and port for each farm node (up to 4)
+3. Click **SS / Berry / Singles / GTL** to start that macro on the remote machine, or **Stop** to stop it
+4. The status label next to each node shows `OK` or `FAILED` after each command
 
 ### Berry Farming setup
 
@@ -161,13 +182,12 @@ shiny_hunt/
 
 ## Building an EXE
 
-Requires PyInstaller and Python 3.11:
+You can package the app into a standalone executable using [PyInstaller](https://pyinstaller.org/):
 
 ```bash
-py -3.11 -m PyInstaller BH-Tools.spec
+pip install pyinstaller
+py -3.11 -m PyInstaller --onefile main.py
 ```
-
-Output will be in `dist/`.
 
 ---
 
