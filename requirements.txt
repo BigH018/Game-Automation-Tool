@@ -1,0 +1,9 @@
+PyQt5
+sounddevice
+scipy
+numpy
+interception-python
+pynput
+requests
+pytesseract
+Pillow

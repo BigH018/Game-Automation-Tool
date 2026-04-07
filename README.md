@@ -16,6 +16,7 @@ A PyQt5 desktop application for automating shiny hunting and GTL price sniping. 
 | Trainer Run | Placeholder |
 | Fishing | Placeholder |
 | Free Shunt | Placeholder |
+| Egg Hatching | Full (6-row × 10-column box grid, 30 iterations per box) |
 | Network Control | Full (controller + listener, up to 4 nodes) |
 
 - **Audio shiny detection** — cross-correlates live audio against a WAV template; stops the macro and alerts you instantly. **Requires a game sound mod** that replaces the shiny encounter sound with a unique audio cue — the included `alert.wav` is the sound the tool listens for, so your mod must use that same sound
@@ -52,7 +53,7 @@ Pillow
 Install all at once:
 
 ```bash
-pip install PyQt5 sounddevice scipy numpy interception-python pynput requests pytesseract Pillow
+pip install -r requirements.txt
 ```
 
 ---
@@ -109,6 +110,18 @@ Steps:
 4. Click **Set Region** and drag over the price text area
 5. Set your **Max Buy Price** (0 = don't buy, just snipe for detection)
 6. Toggle the macro on
+
+### Egg Hatching setup
+
+The egg hatching macro automates releasing eggs from a full box (6 rows × 10 columns = 30 iterations per run).
+
+1. Open the **Egg Hatching** tab
+2. Capture the **Top-Left** grid cell (R1 C1) — click Capture and hover over it within 3 seconds
+3. Capture the **Bottom-Right** grid cell (R6 C10)
+4. Capture the **Confirm** click target (the confirm button on the release dialog)
+5. Toggle the macro on — it will work through all 30 row pairs automatically and stop when done
+
+Each iteration: interact → advance text → Ctrl+Click two slots → click confirm → wait for egg animation.
 
 ### Multi-device network setup
 
