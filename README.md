@@ -218,4 +218,4 @@ When a shiny is detected, a message is sent to the webhook with the detection sc
 
 ![GTL Sniper Tab](screenshots/gtl_sniper.png)
 
-![Network Tab](screenshots/network.png)
+![Network Tab](screenshots/Network.png)
